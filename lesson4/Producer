@@ -1,0 +1,35 @@
+package ua.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="producer")
+public class Producer  extends AbstractEntity{
+
+	
+	private String name;
+
+	List<Producer> producer  = new ArrayList();
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Producer> getProducer() {
+		return producer;
+	}
+
+	public void setProducer(List<Producer> producer) {
+		this.producer = producer;
+	}
+	
+	
+}
