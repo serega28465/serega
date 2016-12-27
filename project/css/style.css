@@ -17,6 +17,7 @@ body{
 .catalog-111:hover{
 	padding: 5px;
 	border:3px dotted #yellow;
+	border-radius:15px;
 	background:yellow;
 }
 li {
