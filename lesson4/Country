@@ -1,0 +1,34 @@
+package ua.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="country")
+public class Country  extends AbstractEntity{
+
+	private String country;
+	
+	List<Country> countrys = new ArrayList();
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public List<Country> getCountrys() {
+		return countrys;
+	}
+
+	public void setCountrys(List<Country> countrys) {
+		this.countrys = countrys;
+	}
+	
+	
+}
