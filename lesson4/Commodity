@@ -1,0 +1,82 @@
+package ua.entity;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="commodity")
+public class Commodity {
+
+	private Category category;
+	private Model model;
+	private Producer producer;
+	private Color color;
+	private Materials materials;
+	private Country country;
+	private BigDecimal price;
+	private Integer nos;
+	private double size;
+
+	List<Commodity> commodity = new ArrayList();
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public Model getModel() {
+		return model;
+	}
+	public void setModel(Model model) {
+		this.model = model;
+	}
+	public Producer getProducer() {
+		return producer;
+	}
+	public void setProducer(Producer producer) {
+		this.producer = producer;
+	}
+	public Color getColor() {
+		return color;
+	}
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	public Materials getMaterials() {
+		return materials;
+	}
+	public void setMaterials(Materials materials) {
+		this.materials = materials;
+	}
+	public Country getCountry() {
+		return country;
+	}
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+	public BigDecimal getPrice() {
+		return price;
+	}
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+	public Integer getNos() {
+		return nos;
+	}
+	public void setNos(Integer nos) {
+		this.nos = nos;
+	}
+	public double getSize() {
+		return size;
+	}
+	public void setSize(double size) {
+		this.size = size;
+	}
+	
+	
+}
