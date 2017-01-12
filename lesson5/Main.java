@@ -7,6 +7,11 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import ua.entity.Category;
 import ua.entity.Color;
@@ -27,7 +32,34 @@ public class Main {
 		final EntityManager em = factory.createEntityManager();
 		//почати транзакцію
 		em.getTransaction().begin();
-	
+
+		
+		
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		
+		CriteriaQuery<Country> query = cb.createQuery(Country.class);
+		
+		Root<Country> root = query.from(Country.class);
+		query.select(root);
+		Expression<String> country = root.get("country");
+		Predicate coPredicate = cb.like(country, "U%");
+		query.where(coPredicate);
+		List<Country> items = em.createQuery(query).getResultList();
+
+		/////////////
+		
+		CriteriaQuery<Category> query1 = cb.createQuery(Category.class);
+		
+		Root<Category> root1 = query1.from(Category.class);
+		query1.select(root1);
+		Expression<String> category = root1.get("category");
+		Predicate caPredicate = cb.like(category, "Аккуст%");
+		query1.where(caPredicate);
+		List<Category> commodity = em.createQuery(query1).getResultList();
+		///////
+		
+		
+
 //		Materials materials = new Materials();
 //		materials.setVerh(em.find(Material.class, 2));
 //		materials.setObechaika(em.find(Material.class, 3));
