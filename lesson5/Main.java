@@ -56,10 +56,39 @@ public class Main {
 		Predicate caPredicate = cb.like(category, "Аккуст%");
 		query1.where(caPredicate);
 		List<Category> commodity = em.createQuery(query1).getResultList();
+		
 		///////
 		
+		CriteriaQuery<Color> query2 = cb.createQuery(Color.class);
 		
-
+		Root<Color> root2 = query2.from(Color.class);
+		query2.select(root2);
+		Expression<String> color = root2.get("color");
+		Predicate colPredicate = cb.like(color, "Bl%");
+		query2.where(colPredicate);
+		List<Color> commodity2 = em.createQuery(query2).getResultList();
+		
+		/////////
+		
+		CriteriaQuery<Producer> query3 = cb.createQuery(Producer.class);
+		
+		Root<Producer> root3 = query3.from(Producer.class);
+		query3.select(root3);
+		Expression<String> producer = root3.get("producer");
+		Predicate proPredicate = cb.like(producer, "YAM%");
+		query3.where(proPredicate);
+		List<Producer> commodity3 = em.createQuery(query3).getResultList();
+		
+		//
+		
+		CriteriaQuery<Commodity> query4 = cb.createQuery(Commodity.class);
+		
+		Root<Commodity> root4 = query4.from(Commodity.class);
+		query4.select(root4);
+		Expression<BigDecimal> priceExp = root4.get("price");
+		Predicate pricePredicate = cb.le(priceExp, new BigDecimal(10.0));
+		query4.where(pricePredicate);
+		List<BigDecimal> commodity4 = em.createQuery(query4).getResultList();
 //		Materials materials = new Materials();
 //		materials.setVerh(em.find(Material.class, 2));
 //		materials.setObechaika(em.find(Material.class, 3));
