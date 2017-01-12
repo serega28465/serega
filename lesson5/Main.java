@@ -12,6 +12,7 @@ import ua.entity.Category;
 import ua.entity.Color;
 import ua.entity.Commodity;
 import ua.entity.Country;
+import ua.entity.Material;
 import ua.entity.Materials;
 import ua.entity.Model;
 import ua.entity.Producer;
@@ -27,9 +28,50 @@ public class Main {
 		//почати транзакцію
 		em.getTransaction().begin();
 	
-		List<Producer> producers = em.createQuery("SELECT p FROM Producer p WHERE p.id IN (:ids)", Producer.class)
-				.setParameter("ids", Arrays.asList(1,2,3,4,5))
-				.getResultList();
+//		Materials materials = new Materials();
+//		materials.setVerh(em.find(Material.class, 2));
+//		materials.setObechaika(em.find(Material.class, 3));
+//		materials.setNiz(em.find(Material.class, 2));
+//		materials.setGrif(em.find(Material.class, 2));
+//		em.persist(materials);
+//		Material material = new Material();
+//		material.setMaterial("Кедр");
+//		em.persist(material);
+		
+//		Commodity commodity = em.createQuery("SELECT c FROM Commodity c JOIN i.category WHERE c.category = :category", Commodity.class)
+//				.setParameter("category", "Акустичні")
+//				.getResultList();
+		
+//		List<Commodity> commodity = em.createQuery("SELECT com FROM Commodity com JOIN com.country c WHERE c.country = :country", Commodity.class)
+//				.setParameter("country", "Ukraine")
+//				.getResultList();
+//		
+//		List<Commodity> commodity1 = em.createQuery("SELECT com FROM Commodity com JOIN com.category c WHERE c.category = :category", Commodity.class)
+//				.setParameter("category", "Класичні гітари")
+//				.getResultList();
+//		
+//		List<Commodity> commodity2 = em.createQuery("SELECT com FROM Commodity com JOIN com.color c WHERE c.color = :color", Commodity.class)
+//				.setParameter("color", "Black")
+//				.getResultList();
+//		
+//		List<Commodity> commodity3 = em.createQuery("SELECT com FROM Commodity com JOIN com.model m WHERE m.model = :model", Commodity.class)
+//				.setParameter("model", "E 770")
+//				.getResultList();
+		
+//		List<Commodity> commodity4 = em.createQuery("SELECT com FROM Commodity com JOIN com.producer p WHERE p.producer = :_name", Commodity.class)
+//				.setParameter("producer", "YAMAHA")
+//				.getResultList();
+//		List<Commodity> commodity5 = em.createQuery("SELECT com FROM Commodity com JOIN com.materials mat where mat.materials = :materials", Commodity.class)
+//				.setParameter("materials", "el")
+//				.getResultList();
+//		Country country = new Country();
+//		country.setCountry("China");
+//		em.persist(country);
+				
+	
+//		List<Producer> producers = em.createQuery("SELECT p FROM Producer p WHERE p.id IN (:ids)", Producer.class)
+//				.setParameter("ids", Arrays.asList(1,2,3,4,5))
+//				.getResultList();
 		
 		
 //		List<Country> countrys = em.createQuery("SELECT con FROM Country con WHERE con.id IN (:ids)", Country.class)
@@ -56,7 +98,7 @@ public class Main {
 //		em.persist(commodity);
 		
 //		Model model = new Model();
-//		model.setModel("E 550");
+//		model.setModel("E 880");
 //		em.persist(model);
 		
 //		Materials materials1 = new Materials();
@@ -67,11 +109,11 @@ public class Main {
 //		em.persist(materials1);
 		
 //		Producer producer1 = new Producer();
-//		producer1.setName("YAMAHA");
+//		producer1.setName("Trembita");
 //		em.persist(producer1);
 	
 //		Color color1 = new Color();
-//		color1.setColor("Black");
+//		color1.setColor("Natural");
 //		em.persist(color1);
 	
 		
@@ -90,7 +132,7 @@ public class Main {
 //		Category category5 = new Category();
 //		category5.setCategory("Укулєлє (Гавайські гітари)");
 //		em.persist(category5);
-	
+//	
 		em.getTransaction().commit();
 		em.close();
 		factory.close();
