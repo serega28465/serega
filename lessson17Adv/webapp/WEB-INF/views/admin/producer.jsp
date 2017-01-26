@@ -43,7 +43,7 @@
 					<div class="form-group">
     					<label for="producer" class="col-sm-2 control-label">Producer</label>
     					<div class="col-sm-10">
-      						<form:input type="text" class="form-control" path="producer" id="producer"/>
+      						<form:input type="text" class="form-control" path="name" id="producer"/>
     					</div>
   					</div>
   					<div class="form-group">
