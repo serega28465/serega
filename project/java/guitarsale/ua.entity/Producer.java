@@ -5,8 +5,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,8 +19,11 @@ public class Producer  extends AbstractEntity{
 	@Column(name="_name")
 	private String name;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Country country;
+	
 	@OneToMany(mappedBy="producer")
-	List<Commodity> commoditys = new ArrayList();
+	List<Commodity> commoditys = new ArrayList<>();
 
 	public String getName() {
 		return name;

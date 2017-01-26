@@ -19,7 +19,10 @@ public class Country  extends AbstractEntity{
 	private String country;
 
 	@OneToMany(mappedBy="country")
-	List<Commodity> commoditys = new ArrayList();
+	List<Producer> producers = new ArrayList<>();
+	
+	@OneToMany(mappedBy="country")
+	List<Commodity> commoditys = new ArrayList<>();
 
 	public String getCountry() {
 		return country;
