@@ -21,7 +21,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import ua.dto.form.ModelForm;
 
 import ua.service.ModelService;
-import ua.validator.CategoryValidator;
 import ua.validator.ModelValidator;
 
 @Controller
@@ -39,8 +38,8 @@ public class ModelController {
 	}
 	
 	@ModelAttribute("model")
-	public ModelForm getForm(){
-		return new ModelForm();
+	public ua.entity.Model getForm(){
+		return new ua.entity.Model();
 	}
 	
 	@RequestMapping
@@ -63,12 +62,12 @@ public class ModelController {
 	}
 	
 	@RequestMapping(method=POST)
-	public String save(@ModelAttribute("model") @Valid Model model, BindingResult br, SessionStatus status, Model model1){
+	public String save(@ModelAttribute("model") @Valid ua.entity.Model form, BindingResult br, SessionStatus status, Model modele){
 		if(br.hasErrors()){
-			model.addAttribute("models", modelService.findAll());
+			modele.addAttribute("models", modelService.findAll());
 			return "admin-model";
 		}
-		modelService.save((ua.entity.Model) model);
+		modelService.save(form);
 		status.setComplete();
 		return "redirect:/admin/model";
 	}
