@@ -1,0 +1,12 @@
+var user = [{
+    "name": "Roksolana",
+    "sname": "Mykhalenych"
+},
+ {
+     "login": "Roxanne",
+     "pass": "1111"
+ },
+{
+    "adress": "lviv",
+    "country": "ukraine"
+}]

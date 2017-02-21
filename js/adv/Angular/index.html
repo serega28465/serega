@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/countries.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head>
+<body ng-controller="myCtr">
+   <div class="page">
+       <header class="header">
+           <div class="container-fluid">
+               <div class="row top__header">
+               <div class="col-lg-5"><h1>{{data[0].name}}</h1></div>
+				<div class="col-lg-4">
+                <div class="inputSer">
+                <span>Search</span>
+                <input type="text" ng-model="inpSer">
+                </div>
+				</div>
+                <div class="col-lg-3">
+                    <input type="button" value="Add new Code" class="newCode" ng-click="addCountry()">
+                </div>
+           </div>
+       </header>
+       <div class="main">
+           <table class="table">
+    <thead>
+      <tr>
+        <th>Counries</th>
+        <th>Code</th>
+        <th>Chache</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="key in data | filter:inpSer | orderBy:'name'">
+        <td>{{key.name}}</td>
+        <td>{{key.code}}</td>
+        <td>
+        <input type="button" value="Change" class="change" ng-click="change(key)">
+        <input type="button" value="Delete" class="delete" ng-click="delete(key)">
+        </td>
+      </tr>
+      <tr>
+        <td>France</td>
+        <td>+44</td>
+        <td>
+          <input type="button" value="Change" class="change">
+        <input type="button" value="Delete" class="delete">
+        </td>
+      </tr>
+      <tr>
+        <td>Poland</td>
+        <td>+46</td>
+        <td>
+          <input type="button" value="Change" class="change">
+        <input type="button" value="Delete" class="delete">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+       </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

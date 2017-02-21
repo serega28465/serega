@@ -1,0 +1,42 @@
+.top__header{
+    padding: 10px 0;
+    background-color: black;
+    font-family: arial;
+}
+.top__header h1{
+    font-size: 2em;
+    color: white;
+}
+.top__header span{
+    font-size: 1em;
+    color: white;
+}
+.newCode{
+    font-size: 16px;
+    background-color: green;
+}
+input[type=button]{
+    margin-top: 15px;
+    border-radius: 3px;
+    padding: 7px 15px;
+    font-size: 16px;
+    border: none;
+    color: white;
+}
+.inputSer{
+    margin-top: 20px;
+    float: right;
+}
+input[type=text]{
+    padding: 7px 15px;
+    border-radius: 3px;
+    font-size: 16px;
+    height: 33px;
+}
+.change{
+    background-color: salmon;
+}
+.delete{
+    background-color: gold;
+    margin-left: 10px;
+}
