@@ -38,9 +38,9 @@
 </div>
 <div class="row">
 	<div class="col-md-3 col-xs-12">
-		<c:if test="${category eq null}">
+		
 			<form:form class="form-horizontal" action="/admin/commodity" method="GET" modelAttribute="filter" id="filter">
-				<custom:hiddenInputs excludeParams="search, minPrice, maxPrice, producers, categorys"/>
+				<custom:hiddenInputs excludeParams="search, minPrice, maxPrice, producer, category"/>
 					<div class="form-group">
 					<div class="col-sm-12">
 	      				<form:input type="text" class="form-control" path="search" placeholder="Search"/>
@@ -55,20 +55,16 @@
 	    			</div>
 				</div>
 				
-				<c:forEach items="${producers}" var="producers">
-					<div class="form-group">
-						<label class="col-sm-12">${producers.name}</label>
-					</div>
+					
 					<div class="form-group">
 						<div class="col-sm-12">
-<%-- 							<form:checkboxes items="${producers.name}" itemLabel="producer" itemValue="id" path="producers"/> --%>
+						<p>Producers</p>
+						<form:checkboxes items="${producers}" itemLabel="name" itemValue="id" path="producers"/> 
 						</div>
 					</div>	
-				</c:forEach>
-					
-				
 					<div class="form-group">
 						<div class="col-sm-12">
+						<p>Categorys</p>
 							<form:checkboxes items="${categorys}" itemLabel="category" itemValue="id" path="categorys"/>
 						</div>
 					</div>
@@ -79,16 +75,16 @@
     				</div>
   				</div>
 			</form:form>
-		</c:if>
+
 	</div>
 </div>
 	
 	<div class="col-md-7 col-xs-12">
-	<c:if test="${category ne null}">
+	
 		<div class="row">
 			<div class="col-md-12 col-xs-12">
 				<form:form class="form-horizontal" action="/admin/commodity" method="POST" modelAttribute="commodity" enctype="multipart/form-data">
-					<custom:hiddenInputs excludeParams="categorys, producers, price"/>
+					<custom:hiddenInputs excludeParams="category, producer, price"/>
 					<form:hidden value="${category.id}" path="category"/>
 					<div class="form-group">
 						<label for="category" class="col-sm-offset-2 col-sm-10"><form:errors path="category"/></label>
@@ -96,13 +92,14 @@
 					<div class="form-group">
     					<label class="col-sm-2 control-label">Category</label>
     					<div class="col-sm-10">
-      						<form:select class="form-control" path="categorys" itemLabel="categorys" itemValue="categorys" items="${categorys}"/>
+      						<form:select class="form-control" path="category" itemLabel="category" itemValue="id" items="${categorys}"/>
     					</div>
   					</div>
+  					
   					<div class="form-group">
     					<label class="col-sm-2 control-label">Producer</label>
     					<div class="col-sm-10">
-      						<form:select class="form-control" path="producers" itemLabel="producers" itemValue="producers" items="${producers}"/>
+      						<form:select class="form-control" path="producer" itemLabel="name" itemValue="id" items="${producers}"/>
     					</div>
   					</div>
 					<div class="form-group">
@@ -117,7 +114,7 @@
   					<div class="form-group">
   						<div class="col-sm-offset-2 col-sm-10">
 		  					<label class="btn btn-default btn-file">
-		        				Browse <input type="file" name="file" style="display: none;">
+		        				Browse <input type="file" name="file" style="display: none;"/>
 		    				</label>
 	    				</div>
 	    			</div>
@@ -129,7 +126,7 @@
 				</form:form>
 			</div>
 		</div>
-	</c:if>	
+
 	<div class="row">
 			<div class="col-md-2 col-xs-2"><h3>Image</h3></div>
 			<div class="col-md-2 col-xs-2"><h3>Item name</h3></div>
