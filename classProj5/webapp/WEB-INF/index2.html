@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+			<meta charset="utf-8">
+			<script
+				src="https://code.jquery.com/jquery-3.1.1.min.js"
+				integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+				crossorigin="anonymous"></script>
+				<script>
+					$(function(){
+						$('ul').on('click', function(event){
+							var number = parseInt($(event.target).html());
+							var count =  parseInt($('ul').children().last().html());
+							for(var i = 1; i<=number; i++){
+								var li = $('<li>');
+								li.html(i+count);
+								li.css('margin-left', '1100px' );
+								$('ul').append(li);
+								li.delay(200).animate({
+								marginLeft:0
+								}, Math.random()*800+200)
+							}
+							$(event.target).animate({
+								marginLeft:Math.random()*900
+								}, Math.random()*800+200,function(){
+								$(event.target).animate({
+									marginLeft:0
+								}, Math.random()*800+200);
+							});
+							$('html, body').animate({scrollTop: $(document).height()
+							},"slow");
+						});
+					});
+				</script>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>
