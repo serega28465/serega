@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+			<meta charset="utf-8">
+			<script>
+				var a = 5;
+				var b = '4';
+				console.log(a+parseInt(b));
+				var array = [a, b];
+				console.log(array);
+				array.push({});
+				console.log(array);
+				for(var i=0; i<array.length;i++){
+					console.log(array[i]);
+				}
+				function name(){
+					console.log('Hello');
+				}
+				var nameFunc = name;
+				nameFunc();
+				var obj = {name:"Ivan"};
+				obj.age = 18;
+				console.log(obj);
+				obj.run = function(){
+					console.log(this.name+' '+'go-go-go');
+				}
+				obj.run();
+				obj['run']();
+				obj.__proto__= Array;
+				console.log(obj);
+				//closed function
+				;(function(){
+					var a = 6;
+					
+					console.log("Module");
+					console.log(a);
+				}());
+				//open function
+				var module = function(){
+					var name = 'Petro';
+					//замикання
+					//все що потрыбно видати на зовны пишемо в return
+					return {
+						getName:function(){
+							return name;
+						},
+						setName:function(_name){
+							name=_name;
+						}
+					}
+				}();
+				console.log(a);
+				console.log(module.getName());
+				module.setName('Mykola');
+				console.log(module.getName());
+				console.log(i);
+				//замикання
+				function add(a){
+					return function(b){
+						if(typeof(b) = = = 'string'){
+							return a+parseInt(b);
+						}
+						return a+b;
+					}
+				}
+				var sum = add(3);
+				console.log(sum(4));
+				console.log(sum(10));
+				//або console.log(add(3)(4));
+				
+				
+			</script>
+	</head>
+	<body>
+		<p id="field">0</p>
+		<button id="start">Start</button>
+		<button id="stop">Stop</button>
+		<script>
+			var trigger = true;
+			var timer = 0;
+			var app = function(){
+				var trigger = true;
+				var run = true;
+				var app = function(){
+						var trigger=true;
+						var run=true;
+							if(run){
+								timer++;
+								document.getElementById("field").innerHTML = timer;
+							}	
+							
+						},1000);
+						return{
+							setRun:function(_run){
+								run = _run;
+							},
+							setTimer:funtion(_timer){
+								timer = _timer;
+							}
+						}
+					}();
+			document.getElementById('start').addEventListener('click',
+					function(){
+						document.getElementById("stop").innerHTML = "Stop";
+						document.getElementById("start").innerHTML = "Start";
+						app.setRun(true);
+					});
+			document.getElementById('stop').addEventListener('click',
+					function(){
+						document.getElementById("start").innerHTML = "Resume";
+						app.setRun(false);
+						if(document.getElementById("stop").innerHTML = "Drop timer";){
+							app.setTimer(0);
+							document.getElementById("field").innerHTML = "0";
+							document.getElementById("stop").innerHTML = "Stop";
+							document.getElementById("start").innerHTML = "Start";
+						}
+						document.getElementById("stop").innerHTML = "Drop timer";
+					});
+		</script>
+	</body>
+</html>
